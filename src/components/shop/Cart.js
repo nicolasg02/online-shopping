@@ -1,6 +1,6 @@
-import CartItem from "./CartItem";
+import CartItem from './CartItem';
 
-import { VscChromeClose } from "react-icons/vsc";
+import { VscChromeClose } from 'react-icons/vsc';
 
 function Cart({
   setCart,
@@ -23,8 +23,25 @@ function Cart({
   const subtotal = calculateSubtotal();
 
   return (
-    <div className="absolute bg-gray-100 min-h-screen p-5 pb-32 w-full flex flex-col space-y-5">
+    <div className="fixed bg-gray-100 min-h-screen p-5 pb-32 w-full flex flex-col space-y-5">
       {cartProducts.length === 0 ? <p>No items in cart</p> : null}
+      {cartProducts.length === 0 && (
+        <div className="min-h-screen">
+          <p>TODO</p>
+        </div>
+      )}
+      {/* Subtotal */}
+      {cartProducts.length !== 0 && (
+        <div className="bottom-0 w-full left-0 bg-black text-yellow-300 text-2xl font-extralight p-5 flex justify-between space-x-2 items-center">
+          <button className="bg-yellow-300 text-black p-4 rounded">
+            Checkout
+          </button>
+          <div>
+            <p>Subtotal:</p>
+            <span className="text-4xl">${subtotal}</span>
+          </div>
+        </div>
+      )}
       {/* Close button */}
       <div className="flex justify-between items-center">
         <p className="text-2xl">Your Cart:</p>
@@ -33,7 +50,7 @@ function Cart({
         </button>
       </div>
       {/* Cart items */}
-      <div className="space-y-5 min-h-screen rounded overflow-y-scroll">
+      <div className="space-y-5 rounded overflow-y-scroll">
         {cartProducts.map((product) => {
           return (
             <CartItem
@@ -44,16 +61,6 @@ function Cart({
             />
           );
         })}
-      </div>
-      {/* Subtotal */}
-      <div className="fixed bottom-0 w-full left-0 bg-black text-yellow-300 text-2xl font-extralight p-5 flex justify-between space-x-2 items-center">
-        <button className="bg-yellow-300 text-black p-4 rounded">
-          Checkout
-        </button>
-        <div>
-          <p>Subtotal:</p>
-          <span className="text-4xl">${subtotal}</span>
-        </div>
       </div>
     </div>
   );

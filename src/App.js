@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Shop from "./components/shop/Shop";
-import CartButton from "./components/shop/CartButton";
-import Cart from "./components/shop/Cart";
-import CartVisibility from "./components/shop/CartVisibility";
-import ProductPage from "./components/shop/ProductPage";
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Shop from './components/shop/Shop';
+import CartButton from './components/shop/CartButton';
+import Cart from './components/shop/Cart';
+import CartVisibility from './components/shop/CartVisibility';
+import ProductPage from './components/shop/ProductPage';
 
 function App() {
   const [cart, setCart] = useState(false);

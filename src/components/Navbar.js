@@ -1,15 +1,29 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { MdMenu } from "react-icons/md";
+import { MdMenu } from 'react-icons/md';
 
 function Navbar() {
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.pageYOffset > 40) setScrolling(true);
+      if (window.pageYOffset < 40) setScrolling(false);
+    };
+
+    return () => (window.onscroll = null);
+  }, []);
   const [mobilemenu, setMobilemenu] = useState(false);
 
   return (
-    <nav className="fixed w-full shadow">
+    <nav className={`fixed w-full ${scrolling && 'shadow'}`}>
       {/* Items */}
-      <div className="bg-yellow-300 p-3 flex justify-between items-center">
+      <div
+        className={`${
+          scrolling ? 'bg-yellow-300' : 'bg-transparent'
+        } p-3 flex justify-between items-center`}
+      >
         <div>
           <Link to="/">
             <h2 className="text-xl">Online Shopping</h2>
@@ -23,7 +37,11 @@ function Navbar() {
       </div>
       {/* Mobile: menu drawer */}
       {mobilemenu && (
-        <div className="w-full bg-yellow-300">
+        <div
+          className={`w-full ${
+            scrolling ? 'bg-yellow-300' : 'bg-gray-50'
+          } shadow`}
+        >
           <Link
             to="/"
             onClick={() => setMobilemenu(false)}

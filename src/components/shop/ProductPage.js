@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { FaStar } from "react-icons/fa";
+import { FaStar } from 'react-icons/fa';
 
 function ProductPage({ handleAddToCart }) {
   const [productData, setProductData] = useState({});
@@ -17,14 +17,14 @@ function ProductPage({ handleAddToCart }) {
 
   if (Object.keys(productData).length <= 0) {
     return (
-      <div className="py-20">
+      <div className="py-20 bg-gray-50">
         <p>Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen py-20 px-5">
+    <div className="min-h-screen py-20 px-5 bg-gray-50">
       <div className="space-y-5">
         {/* image */}
         <div className="flex justify-center">
@@ -48,9 +48,9 @@ function ProductPage({ handleAddToCart }) {
               sm:text-xs"
             >
               {productData.category
-                .split(" ")
+                .split(' ')
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")}
+                .join(' ')}
             </p>
           </div>
           <div>
