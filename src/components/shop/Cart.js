@@ -23,7 +23,7 @@ function Cart({
   const subtotal = calculateSubtotal();
 
   return (
-    <div className="fixed bg-gray-100 min-h-screen p-5 pb-32 w-full flex flex-col space-y-5">
+    <div className="absolute bg-gray-100 min-h-screen p-5 pb-32 w-full flex flex-col space-y-5">
       {cartProducts.length === 0 ? <p>No items in cart</p> : null}
       {cartProducts.length === 0 && (
         <div className="min-h-screen">
@@ -32,7 +32,7 @@ function Cart({
       )}
       {/* Subtotal */}
       {cartProducts.length !== 0 && (
-        <div className="bottom-0 w-full left-0 bg-black text-yellow-300 text-2xl font-extralight p-5 flex justify-between space-x-2 items-center">
+        <div className="w-full bg-black text-yellow-300 text-2xl font-extralight p-5 flex justify-between space-x-2 items-center">
           <button className="bg-yellow-300 text-black p-4 rounded">
             Checkout
           </button>
@@ -50,7 +50,7 @@ function Cart({
         </button>
       </div>
       {/* Cart items */}
-      <div className="space-y-5 rounded overflow-y-scroll">
+      <div className="space-y-5 rounded">
         {cartProducts.map((product) => {
           return (
             <CartItem
