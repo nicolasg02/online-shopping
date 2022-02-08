@@ -1,80 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {FaBars, FaShoppingBag, FaShoppingCart} from 'react-icons/fa'
 
-import { MdMenu } from 'react-icons/md';
-import { HiOutlineShoppingCart } from 'react-icons/hi';
-
-function Navbar() {
-  const [scrolling, setScrolling] = useState(false);
-
-  useEffect(() => {
-    window.onscroll = () => {
-      if (window.pageYOffset > 40) setScrolling(true);
-      if (window.pageYOffset < 40) setScrolling(false);
-    };
-
-    return () => (window.onscroll = null);
-  }, []);
-  const [mobilemenu, setMobilemenu] = useState(false);
-
+export default function Navbar() {
   return (
-    <nav className={`fixed w-full ${scrolling && 'shadow'}`}>
-      {/* Items */}
-      <div
-        className={`${
-          scrolling ? 'bg-yellow-300' : 'bg-transparent'
-        } p-3 flex justify-between items-center md:px-20 md:py-8 md:pb-5`}
-      >
-        <div>
-          <Link to="/">
-            <h2 className="text-xl font-light">Online Shopping</h2>
-          </Link>
-        </div>
-        <div className="hidden md:block">
-          <Link
-            className={`${
-              scrolling
-                ? 'bg-gray-50 hover:bg-white'
-                : 'bg-yellow-300 hover:bg-yellow-200'
-            } py-3 px-4 shadow rounded text-sm font-ligth`}
-            to="/shop"
-          >
-            <HiOutlineShoppingCart className="inline-block" />{' '}
-            <span>Start Shopping</span>
-          </Link>
-        </div>
-        {/* Mobile: menu button */}
-        <div className="flex items-center md:hidden">
-          <button onClick={() => setMobilemenu(!mobilemenu)}>
-            <MdMenu className="h-9 w-9" />
-          </button>
-        </div>
+    <nav className="bg-transparent w-full h-14 px-3 md:px-10 md:py-10 flex justify-between items-center">
+      <div className="flex items-center gap-7">
+        <span className="flex items-center gap-2 bg-black text-white p-2 text-lg cursor-pointer">
+          <FaShoppingBag /> Online Shopping
+        </span>
+        <ul className="hidden md:flex gap-4">
+          <li className="cursor-pointer hover:underline">Home</li>
+          <li className="cursor-pointer hover:underline">Categories</li>
+          <li className="cursor-pointer hover:underline">Wishlist</li>
+        </ul>
       </div>
-      {/* Mobile: menu drawer */}
-      {mobilemenu && (
-        <div
-          className={`w-full ${
-            scrolling ? 'bg-yellow-300' : 'bg-gray-50'
-          } shadow`}
-        >
-          <Link
-            to="/"
-            onClick={() => setMobilemenu(false)}
-            className="block py-3 px-4 text-lg"
-          >
-            <span>Home</span>
-          </Link>
-          <Link
-            to="/shop"
-            onClick={() => setMobilemenu(false)}
-            className="block py-3 px-4 text-lg"
-          >
-            <span>Shop</span>
-          </Link>
-        </div>
-      )}
-    </nav>
-  );
-}
 
-export default Navbar;
+      <button className="hidden md:flex hover:bg-gray-300 p-3 rounded-full justify-center items-center hover:transition-all duration-400">
+        <FaShoppingCart className="text-2xl" />
+      </button>
+
+      <button className="md:hidden">
+        <FaBars />
+      </button>
+    </nav>
+  )
+}

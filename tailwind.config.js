@@ -1,13 +1,10 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
   theme: {
     extend: {},
   },
-  variants: {
-    extend: {
-      backgroundColor: ['active'],
-    },
-  },
-  plugins: [],
-};
+  plugins: [require('tw-elements/dist/plugin')],
+}
