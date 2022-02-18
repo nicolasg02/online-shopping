@@ -1,4 +1,4 @@
-import { FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
+import { FaTwitter, FaYoutube, FaFacebook } from "react-icons/fa"
 
 function Footer() {
   return (
@@ -18,7 +18,7 @@ function Footer() {
         </a>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

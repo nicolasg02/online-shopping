@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react"
 
-import { FaAlignRight, FaGithub, FaMoon } from 'react-icons/fa';
+import { FaAlignRight, FaGithub } from "react-icons/fa"
 
 function Navbar() {
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const mobileMenu = showMobileMenu && (
     <div className="bg-base-300">
@@ -19,7 +19,7 @@ function Navbar() {
         </li>
       </ul>
     </div>
-  );
+  )
 
   return (
     <div className="fixed w-full">
@@ -32,10 +32,10 @@ function Navbar() {
         <div className="flex-1 hidden md:block">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a>Item 1</a>
+              <a href="?">Item 1</a>
             </li>
             <li tabIndex={0}>
-              <a>
+              <a href="?">
                 Parent
                 <svg
                   className="fill-current"
@@ -49,36 +49,29 @@ function Navbar() {
               </a>
               <ul className="p-2 bg-base-300">
                 <li>
-                  <a>Submenu 1</a>
+                  <a href="?">Submenu 1</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a href="?">Submenu 2</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a href="?">Item 3</a>
             </li>
           </ul>
         </div>
         <div className="flex-none">
           <div className="block md:hidden">
             <button
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
               className="btn btn-square btn-ghost"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               <FaAlignRight className="text-xl" />
             </button>
           </div>
-          <button
-            className="hidden md:flex btn btn-square btn-ghost text-lg justify-center items-center text-gray-300 hover:text-white"
-            data-toggle-theme="dark,light"
-            data-act-class="ACTIVECLASS"
-          >
-            <FaMoon />
-          </button>
           <a
-            className="hidden md:flex btn btn-square btn-ghost text-xl justify-center items-center text-gray-300 hover:text-white"
+            className="hidden md:flex btn btn-square btn-ghost text-xl justify-center items-center"
             href="https://github.com/nicolasg02"
             target="_blank"
             rel="noreferrer"
@@ -89,7 +82,7 @@ function Navbar() {
       </div>
       {mobileMenu}
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
