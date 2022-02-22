@@ -1,12 +1,12 @@
 import { useState } from "react"
 
-import { FaAlignRight, FaGithub } from "react-icons/fa"
+import { FaAlignRight, FaShoppingCart } from "react-icons/fa"
 
 function Navbar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const mobileMenu = showMobileMenu && (
-    <div className="bg-base-300">
+    <div className="bg-base-300 md:hidden">
       <ul className="p-2">
         <li>
           <a href="?">All Products</a>
@@ -22,7 +22,7 @@ function Navbar() {
   )
 
   return (
-    <div className="fixed w-full">
+    <div className="fixed w-full z-50">
       <div className="navbar bg-base-300">
         <div className="flex-1 md:flex-none">
           <a href="?" className="btn btn-ghost normal-case text-xl">
@@ -32,11 +32,11 @@ function Navbar() {
         <div className="flex-1 hidden md:block">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a href="?">Item 1</a>
+              <a href="?">All Products</a>
             </li>
             <li tabIndex={0}>
-              <a href="?">
-                Parent
+              <button>
+                Categories
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -46,18 +46,24 @@ function Navbar() {
                 >
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
-              </a>
+              </button>
               <ul className="p-2 bg-base-300">
                 <li>
-                  <a href="?">Submenu 1</a>
+                  <a href="?">Electronics</a>
                 </li>
                 <li>
-                  <a href="?">Submenu 2</a>
+                  <a href="?">Wear</a>
+                </li>
+                <li>
+                  <a href="?">Food & Drinks</a>
+                </li>
+                <li>
+                  <a href="?">Health</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="?">Item 3</a>
+              <a href="?">About Us</a>
             </li>
           </ul>
         </div>
@@ -76,7 +82,7 @@ function Navbar() {
             target="_blank"
             rel="noreferrer"
           >
-            <FaGithub />
+            <FaShoppingCart />
           </a>
         </div>
       </div>
